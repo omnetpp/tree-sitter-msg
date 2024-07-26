@@ -12,8 +12,8 @@
   "author": "Rudolf Hornig",
   "license": "MIT",
   "dependencies": {
-    "node-addon-api": "^7.1.0",
-    "node-gyp-build": "^4.8.0"
+    "node-gyp-build": "^4.8.0",
+    "node-addon-api": "^7.1.0"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.0"
@@ -43,5 +43,20 @@
         "msg"
       ]
     }
-  ]
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omnetpp/tree-sitter-msg.git"
+  },
+  "keywords": [
+    "omnetpp",
+    "msg"
+  ],
+  "bugs": {
+    "url": "https://github.com/omnetpp/tree-sitter-msg/issues"
+  },
+  "homepage": "https://github.com/omnetpp/tree-sitter-msg#readme"
 }
