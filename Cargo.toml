@@ -1,5 +1,5 @@
 [package]
-name = "tree-sitter-msg"
+name = "omnetpp-msg"
 description = "Msg grammar for tree-sitter"
 version = "0.0.1"
 license = "MIT"

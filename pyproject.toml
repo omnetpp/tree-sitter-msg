@@ -3,7 +3,7 @@ requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tree-sitter-msg"
+name = "omnetpp-msg"
 description = "Msg grammar for tree-sitter"
 version = "0.0.1"
 keywords = ["incremental", "parsing", "tree-sitter", "msg"]
