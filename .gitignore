@@ -39,10 +39,10 @@ dist/
 *.out.js
 
 # generated files
-src/
-bindings/
-setup.py
-pyproject.toml
-Cargo.toml
-Makefile
-Package.swift
+#src/
+#bindings/
+#setup.py
+#pyproject.toml
+#Cargo.toml
+#Makefile
+#Package.swift
