@@ -1,6 +1,6 @@
 VERSION := 0.0.1
 
-LANGUAGE_NAME := tree-sitter-msg
+LANGUAGE_NAME := omnetpp-msg
 
 # repository
 SRC_DIR := src
