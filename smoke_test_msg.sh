@@ -1,1 +1,1 @@
-smoke_test.sh msg "$@"
+./smoke_test.sh msg "$@"
