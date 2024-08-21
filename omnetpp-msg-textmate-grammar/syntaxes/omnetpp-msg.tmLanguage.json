@@ -12,6 +12,10 @@
 	  { "include": "#packet_decl" },
 	  { "include": "#enum_decl" },
 	  { "include": "#enum" },
+	  { "include": "#property" },
+	  { "include": "#extends" },
+	  { "include": "#types" },
+	  { "include": "#string" },
 	  { "include": "#message" },
 	  { "include": "#packet" },
 	  { "include": "#class" },
@@ -111,7 +115,8 @@
 			"end": "\\}",
 			"patterns": [
 			  { "include": "#field" },
-			  { "include": "#comment" }
+			  { "include": "#comment" },
+			  { "include": "#extends" }
 			]
 		  }
 		]
@@ -124,7 +129,8 @@
 			"end": "\\}",
 			"patterns": [
 			  { "include": "#field" },
-			  { "include": "#comment" }
+			  { "include": "#comment" },
+			  { "include": "#extends" }
 			]
 		  }
 		]
@@ -137,7 +143,8 @@
 			"end": "\\}",
 			"patterns": [
 			  { "include": "#field" },
-			  { "include": "#comment" }
+			  { "include": "#comment" },
+			  { "include": "#extends" }
 			]
 		  }
 		]
@@ -155,6 +162,38 @@
 		  }
 		]
 	  },
+	  "property": {
+		"patterns": [
+		  {
+			"name": "entity.name.tag.msg",
+			"match": "@[a-zA-Z]+"
+		  }
+		]
+	  },
+	  "extends": {
+		"patterns": [
+		  {
+			"name": "keyword.other.extends.msg",
+			"match": "\\bextends\\b"
+		  }
+		]
+	  },
+	  "types": {
+		"patterns": [
+		  {
+			"name": "storage.type.common",
+			"match": "\\b(?:uint64_t|int32_t|int64_t|uint32_t|int8_t|uint8_t|int16_t|uint16_t|size_t|float|double|int|bool|short)\\b"
+		  }
+		]
+	  },
+	"string": {
+		"patterns": [
+			{
+			"name": "string.quoted.msg",
+			"match": "\"[^\"]*\""
+			}
+		]
+	},
 	  "field": {
 		"patterns": [
 		  {
