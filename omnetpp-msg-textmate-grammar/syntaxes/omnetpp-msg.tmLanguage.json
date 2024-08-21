@@ -1,0 +1,185 @@
+{
+	"name": "MSG",
+	"scopeName": "source.msg",
+	"patterns": [
+	  { "include": "#cplusplus" },
+	  { "include": "#comment" },
+	  { "include": "#namespace" },
+	  { "include": "#import" },
+	  { "include": "#struct_decl" },
+	  { "include": "#class_decl" },
+	  { "include": "#message_decl" },
+	  { "include": "#packet_decl" },
+	  { "include": "#enum_decl" },
+	  { "include": "#enum" },
+	  { "include": "#message" },
+	  { "include": "#packet" },
+	  { "include": "#class" },
+	  { "include": "#struct" }
+	],
+	"repository": {
+	  "cplusplus": {
+		"patterns": [
+		  {
+			"name": "keyword.other.cplusplus.msg",
+			"match": "\\bcplusplus\\b"
+		  }
+		]
+	  },
+	  "comment": {
+		"patterns": [
+		  {
+			"name": "comment.line.double-slash.msg",
+			"match": "//.*$"
+		  }
+		]
+	  },
+	  "namespace": {
+		"patterns": [
+		  {
+			"name": "keyword.other.namespace.msg",
+			"match": "\\bnamespace\\b"
+		  }
+		]
+	  },
+	  "import": {
+		"patterns": [
+		  {
+			"name": "keyword.other.import.msg",
+			"match": "\\bimport\\b"
+		  }
+		]
+	  },
+	  "struct_decl": {
+		"patterns": [
+		  {
+			"name": "keyword.other.struct.msg",
+			"match": "\\bstruct\\b"
+		  }
+		]
+	  },
+	  "class_decl": {
+		"patterns": [
+		  {
+			"name": "keyword.other.class.msg",
+			"match": "\\bclass\\b"
+		  }
+		]
+	  },
+	  "message_decl": {
+		"patterns": [
+		  {
+			"name": "keyword.other.message.msg",
+			"match": "\\bmessage\\b"
+		  }
+		]
+	  },
+	  "packet_decl": {
+		"patterns": [
+		  {
+			"name": "keyword.other.packet.msg",
+			"match": "\\bpacket\\b"
+		  }
+		]
+	  },
+	  "enum_decl": {
+		"patterns": [
+		  {
+			"name": "keyword.other.enum.msg",
+			"match": "\\benum\\b"
+		  }
+		]
+	  },
+	  "enum": {
+		"patterns": [
+		  {
+			"name": "keyword.other.enum.msg",
+			"begin": "\\benum\\b",
+			"end": "\\}",
+			"patterns": [
+			  { "include": "#enumfield_or_property" },
+			  { "include": "#comment" }
+			]
+		  }
+		]
+	  },
+	  "message": {
+		"patterns": [
+		  {
+			"name": "keyword.other.message.msg",
+			"begin": "\\bmessage\\b",
+			"end": "\\}",
+			"patterns": [
+			  { "include": "#field" },
+			  { "include": "#comment" }
+			]
+		  }
+		]
+	  },
+	  "packet": {
+		"patterns": [
+		  {
+			"name": "keyword.other.packet.msg",
+			"begin": "\\bpacket\\b",
+			"end": "\\}",
+			"patterns": [
+			  { "include": "#field" },
+			  { "include": "#comment" }
+			]
+		  }
+		]
+	  },
+	  "class": {
+		"patterns": [
+		  {
+			"name": "keyword.other.class.msg",
+			"begin": "\\bclass\\b",
+			"end": "\\}",
+			"patterns": [
+			  { "include": "#field" },
+			  { "include": "#comment" }
+			]
+		  }
+		]
+	  },
+	  "struct": {
+		"patterns": [
+		  {
+			"name": "keyword.other.struct.msg",
+			"begin": "\\bstruct\\b",
+			"end": "\\}",
+			"patterns": [
+			  { "include": "#field" },
+			  { "include": "#comment" }
+			]
+		  }
+		]
+	  },
+	  "field": {
+		"patterns": [
+		  {
+			"name": "meta.field.msg",
+			"match": "\\b(?:char|short|int|long|double|string|bool|unsigned)\\b"
+		  }
+		]
+	  },
+	  "body": {
+		"patterns": [
+		  {
+			"name": "meta.body.msg",
+			"match": "\\{([^}]*)\\}"
+		  }
+		]
+	  },
+	  "targetspec": {
+		"patterns": [
+		  {
+			"name": "meta.targetspec.msg",
+			"match": "\\b(?:[a-zA-Z_][a-zA-Z0-9_]*|::|:|\\.|,|~|=|&)\\b"
+		  }
+		]
+	  }
+	},
+	"scopeName": "source.msg"
+  }
+  

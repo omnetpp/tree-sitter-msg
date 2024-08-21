@@ -1,0 +1,25 @@
+{
+  "name": "omnetpp-msg-textmate-grammar",
+  "displayName": "omnetpp msg textmate grammar",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.92.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "omnetpp-msg",
+      "aliases": ["omnetpp-msg", "omnetpp-msg"],
+      "extensions": [".msg"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "omnetpp-msg",
+      "scopeName": "source.msg",
+      "path": "./syntaxes/omnetpp-msg.tmLanguage.json"
+    }]
+  }
+}
