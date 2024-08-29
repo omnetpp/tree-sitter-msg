@@ -1,6 +1,6 @@
 // grammar.js
 module.exports = grammar({
-  name: "omnetpp-msg",
+  name: "omnetpp_msg",
 
   extras: ($) => [/\s/, $._commentline],
 
