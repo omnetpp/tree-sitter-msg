@@ -1,0 +1,39 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "omnetpp-msg",
+      "camelcase": "OmnetppMsg",
+      "title": "omnetpp-msg",
+      "scope": "source.msg",
+      "file-types": [
+        "msg"
+      ],
+      "injection-regex": "^msg$",
+      "class-name": "TreeSitterMsg"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Tree-sitter parser for the OMNeT++ MSG language",
+    "authors": [
+      {
+        "name": "Gyorgy Szaszko",
+        "email": "adam.szaszko@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/omnetpp/tree-sitter-msg"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

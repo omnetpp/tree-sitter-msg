@@ -1,6 +1,6 @@
 {
-  "name": "omnetpp-msg-ts",
-  "version": "1.0.0",
+  "name": "omnetpp-msg",
+  "version": "0.0.1",
   "main": "grammar.js",
   "types": "bindings/node",
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adamgeorge309/omnetpp-msg-ts.git"
+    "url": "git+https://github.com/omnetpp/tree-sitter-msg.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/adamgeorge309/omnetpp-msg-ts/issues"
+    "url": "https://github.com/omnetpp/tree-sitter-msg/issues"
   },
-  "homepage": "https://github.com/adamgeorge309/omnetpp-msg-ts#readme",
+  "homepage": "https://github.com/omnetpp/tree-sitter-msg#readme",
   "description": "",
   "dependencies": {
     "node-addon-api": "^8.0.0",
