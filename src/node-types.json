@@ -127,21 +127,6 @@
     }
   },
   {
-    "type": "cplusplus_parenthesized",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "cplusplus_parenthesized",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "enum",
     "named": true,
     "fields": {},
@@ -275,6 +260,7 @@
   {
     "type": "msg_file",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,

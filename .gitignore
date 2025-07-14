@@ -10,6 +10,7 @@ node_modules/
 
 # Swift artifacts
 .build/
+Package.resolved
 
 # Go artifacts
 go.sum
@@ -36,13 +37,3 @@ dist/
 *.wasm
 *.obj
 *.o
-*.out.js
-
-# generated files
-#src/
-#bindings/
-#setup.py
-#pyproject.toml
-#Cargo.toml
-#Makefile
-#Package.swift
