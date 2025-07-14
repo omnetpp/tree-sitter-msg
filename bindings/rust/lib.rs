@@ -7,10 +7,7 @@
 //! let code = r#"
 //! "#;
 //! let mut parser = tree_sitter::Parser::new();
-//! let language = tree_sitter_msg::LANGUAGE;
-//! parser
-//!     .set_language(&language.into())
-//!     .expect("Error loading Msg parser");
+//! parser.set_language(&tree_sitter_msg::language()).expect("Error loading Msg grammar");
 //! let tree = parser.parse(code, None).unwrap();
 //! assert!(!tree.root_node().has_error());
 //! ```
@@ -20,14 +17,18 @@
 //! [Parser]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Parser.html
 //! [tree-sitter]: https://tree-sitter.github.io/
 
-use tree_sitter_language::LanguageFn;
+use tree_sitter::Language;
 
 extern "C" {
-    fn tree_sitter_msg() -> *const ();
+    fn tree_sitter_msg() -> Language;
 }
 
-/// The tree-sitter [`LanguageFn`] for this grammar.
-pub const LANGUAGE: LanguageFn = unsafe { LanguageFn::from_raw(tree_sitter_msg) };
+/// Get the tree-sitter [Language][] for this grammar.
+///
+/// [Language]: https://docs.rs/tree-sitter/*/tree_sitter/struct.Language.html
+pub fn language() -> Language {
+    unsafe { tree_sitter_msg() }
+}
 
 /// The content of the [`node-types.json`][] file for this grammar.
 ///
@@ -36,7 +37,7 @@ pub const NODE_TYPES: &str = include_str!("../../src/node-types.json");
 
 // NOTE: uncomment these to include any queries that this grammar contains:
 
-// pub const HIGHLIGHTS_QUERY: &str = include_str!("../../queries/highlights.scm");
+pub const HIGHLIGHTS_QUERY: &str = include_str!("../../queries/highlights.scm");
 // pub const INJECTIONS_QUERY: &str = include_str!("../../queries/injections.scm");
 // pub const LOCALS_QUERY: &str = include_str!("../../queries/locals.scm");
 // pub const TAGS_QUERY: &str = include_str!("../../queries/tags.scm");
@@ -47,7 +48,7 @@ mod tests {
     fn test_can_load_grammar() {
         let mut parser = tree_sitter::Parser::new();
         parser
-            .set_language(&super::LANGUAGE.into())
-            .expect("Error loading Msg parser");
+            .set_language(&super::language())
+            .expect("Error loading Msg grammar");
     }
 }
