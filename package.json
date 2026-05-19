@@ -1,6 +1,6 @@
 {
   "name": "omnetpp-msg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "grammar.js",
   "types": "bindings/node",
   "scripts": {
