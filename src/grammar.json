@@ -890,8 +890,13 @@
           "value": "packet"
         },
         {
-          "type": "SYMBOL",
-          "name": "_qname"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_qname"
+          },
+          "named": true,
+          "value": "name"
         },
         {
           "type": "CHOICE",
@@ -904,8 +909,13 @@
                   "value": "extends"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_qname"
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_qname"
+                  },
+                  "named": true,
+                  "value": "extends"
                 }
               ]
             },

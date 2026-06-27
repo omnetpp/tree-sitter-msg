@@ -355,7 +355,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "body",
@@ -363,6 +363,14 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "extends",
+          "named": true
+        },
+        {
+          "type": "name",
           "named": true
         }
       ]
