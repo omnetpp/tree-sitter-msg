@@ -30,11 +30,13 @@ enum GptpNodeType
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (comment)
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (comment)
       (comment)))
   (enum
@@ -42,10 +44,13 @@ enum GptpNodeType
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value)))))
+        (value
+          (number))))))

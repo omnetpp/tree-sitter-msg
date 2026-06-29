@@ -275,75 +275,101 @@ class GptpIngressTimeInd extends TagBase
   (property
     (name)
     (index)
-    (tag))
+    (property_key
+      (name)
+      (property_value))
+    (property_key
+      (name)
+      (property_value))
+    (property_key
+      (name)
+      (property_value
+        (string))))
   (enum
     (name)
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))))
+        (value
+          (number)))))
   (enum
     (name)
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))))
+        (value
+          (number)))))
   (enum
     (name)
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))))
+        (value
+          (number)))))
   (enum
     (name)
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (name)
-        (value))))
+        (value
+          (number)))))
   (enum
     (comment)
     (name)
     (body
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (comment)
       (field
         (name)
-        (value))
+        (value
+          (number)))
       (comment)
       (comment)))
   (enum
@@ -351,7 +377,8 @@ class GptpIngressTimeInd extends TagBase
     (body
       (field
         (name)
-        (value))))
+        (value
+          (number)))))
   (comment)
   (comment)
   (comment)
@@ -393,101 +420,119 @@ class GptpIngressTimeInd extends TagBase
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)))
   (class
     (name)
@@ -500,13 +545,15 @@ class GptpIngressTimeInd extends TagBase
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))))
+          (property_key
+            (property_value))))))
   (class
     (comment)
     (name)
@@ -519,49 +566,58 @@ class GptpIngressTimeInd extends TagBase
         (name)
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (value))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)))
   (cplusplus
     (target)

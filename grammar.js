@@ -32,9 +32,9 @@ module.exports = grammar({
     cplusplus: ($) =>
       seq(
         "cplusplus",
-        optional(seq("(", alias($.targetspec, $.target), ")")),
+        optional(seq("(", field("target", alias($.targetspec, $.target)), ")")),
         "{{",
-        alias(/([^}}]|[}][^}])*/, $.body),
+        field("body", alias(/([^}]|}[^}])*/, $.body)),
         "}}",
         optional(";"),
       ),
@@ -43,7 +43,8 @@ module.exports = grammar({
 
     _commentline: (_) => token(seq("//", /(\\+(.|\r?\n)|[^\\\n])*/)),
 
-    namespace: ($) => seq("namespace", optional(alias($._qname, $.name)), ";"),
+    namespace: ($) =>
+      seq("namespace", optional(field("name", alias($._qname, $.name))), ";"),
 
     _qname: ($) => seq(optional("::"), $._NAME, repeat(seq("::", $._NAME))),
 
@@ -52,7 +53,7 @@ module.exports = grammar({
     _targetitem: ($) =>
       choice($._NAME, "::", $._INTCONSTANT, ":", ".", ",", "~", "=", "&"),
 
-    import: ($) => seq("import", alias($.importspec, $.name), ";"),
+    import: ($) => seq("import", field("name", alias($.importspec, $.name)), ";"),
 
     importspec: ($) =>
       choice(
@@ -73,22 +74,27 @@ module.exports = grammar({
         "abstract",
       ),
 
-    struct_decl: ($) => seq("struct", alias($._qname, $.name), ";"),
+    struct_decl: ($) =>
+      seq("struct", field("name", alias($._qname, $.name)), ";"),
 
     class_decl: ($) =>
-      seq(
-        "class",
-        optional("noncobject"),
-        alias($._qname, $.name),
-        optional(seq("extends", alias($._qname, $.extends))),
-        ";",
+      choice(
+        seq("class", "noncobject", field("name", alias($._qname, $.name)), ";"),
+        seq(
+          "class",
+          field("name", alias($._qname, $.name)),
+          optional(seq("extends", field("extends", alias($._qname, $.extends)))),
+          ";",
+        ),
       ),
 
-    message_decl: ($) => seq("message", alias($._qname, $.name), ";"),
+    message_decl: ($) =>
+      seq("message", field("name", alias($._qname, $.name)), ";"),
 
-    packet_decl: ($) => seq("packet", alias($._qname, $.name), ";"),
+    packet_decl: ($) =>
+      seq("packet", field("name", alias($._qname, $.name)), ";"),
 
-    enum_decl: ($) => seq("enum", alias($._qname, $.name), ";"),
+    enum_decl: ($) => seq("enum", field("name", alias($._qname, $.name)), ";"),
 
     enum: ($) =>
       prec(
@@ -96,7 +102,7 @@ module.exports = grammar({
         seq(
           optional($.comment),
           "enum",
-          alias($._qname, $.name),
+          field("name", alias($._qname, $.name)),
           "{",
           alias(
             repeat(choice($._enumfield_or_property, $.comment, $._EMPTYLINE)),
@@ -117,12 +123,17 @@ module.exports = grammar({
 
     enumfield: ($) =>
       seq(
-        alias($._NAME, $.name),
-        optional(seq("=", alias($.enumvalue, $.value))),
+        field("name", alias($._NAME, $.name)),
+        optional(seq("=", field("value", alias($.enumvalue, $.value)))),
         ";",
       ),
 
-    enumvalue: ($) => choice($._INTCONSTANT, seq("-", $._INTCONSTANT), $._NAME),
+    enumvalue: ($) =>
+      choice(
+        alias($._INTCONSTANT, $.number),
+        seq("-", alias($._INTCONSTANT, $.number)),
+        $._NAME,
+      ),
 
     message: ($) =>
       prec(10, seq(optional($.comment), $._message_header, $._body)),
@@ -138,35 +149,34 @@ module.exports = grammar({
     _message_header: ($) =>
       seq(
         "message",
-        alias($._qname, $.name),
-        optional(seq("extends", alias($._qname, $.extends))),
+        field("name", alias($._qname, $.name)),
+        optional(seq("extends", field("extends", alias($._qname, $.extends)))),
       ),
 
     _packet_header: ($) =>
       seq(
         "packet",
-        alias($._qname, $.name),
-        optional(seq("extends", alias($._qname, $.extends))),
+        field("name", alias($._qname, $.name)),
+        optional(seq("extends", field("extends", alias($._qname, $.extends)))),
       ),
 
     _class_header: ($) =>
-      seq(
-        "class",
-        alias(prec.left($._qname), $.name),
-        optional(seq("extends", alias($._qname, $.extends))),
-      ),
+    seq(
+      "class",
+      field("name", alias(prec.left($._qname), $.name)),
+      optional(seq("extends", field("extends", alias($._qname, $.extends)))),
+    ),
 
     _struct_header: ($) =>
       seq(
         "struct",
-        alias($._qname, $.name),
-        optional(seq("extends", alias($._qname, $.extends))),
+        field("name", alias($._qname, $.name)),
+        optional(seq("extends", field("extends", alias($._qname, $.extends)))),
       ),
 
     _body: ($) =>
       seq(
         "{",
-        optional(/\s/),
         alias(
           repeat(
             seq(
@@ -193,7 +203,7 @@ module.exports = grammar({
           optional(alias($.opt_fieldvector, $.vector)),
           optional($._inline_properties),
           "=",
-          alias($.fieldvalue, $.value),
+          field("value", alias($.fieldvalue, $.value)),
           optional($._inline_properties),
           ";",
         ),
@@ -202,8 +212,8 @@ module.exports = grammar({
     _fieldtypename: ($) =>
       seq(
         optional("abstract"),
-        alias(optional($._fielddatatype), $.type),
-        alias($._NAME, $.name),
+        field("type", alias(optional($._fielddatatype), $.type)),
+        field("name", alias($._NAME, $.name)),
       ),
 
     _fielddatatype: ($) =>
@@ -232,8 +242,8 @@ module.exports = grammar({
 
     opt_fieldvector: ($) =>
       choice(
-        seq("[", alias($._INTCONSTANT, $.size), "]"),
-        seq("[", alias($._qname, $.name), "]"), // TODO can this be a name?
+        seq("[", field("size", alias($._INTCONSTANT, $.size)), "]"),
+        seq("[", field("size", alias($._qname, $.name)), "]"),
         seq("[", "]"),
       ),
 
@@ -241,10 +251,10 @@ module.exports = grammar({
 
     _fieldvalueitem: ($) =>
       choice(
-        $._STRINGCONSTANT,
-        $._CHARCONSTANT,
-        $._INTCONSTANT,
-        $._REALCONSTANT,
+        alias($._STRINGCONSTANT, $.string),
+        alias($._CHARCONSTANT, $.char),
+        alias($._REALCONSTANT, $.number),
+        alias($._INTCONSTANT, $.number),
         "true",
         "false",
         $._NAME,
@@ -284,40 +294,76 @@ module.exports = grammar({
     property: ($) =>
       choice(
         seq("@", $._prop_body, ";"),
-        seq(alias("enum", $.name), "(", alias($._NAME, $.tag), ")", ";"), // legacy syntax
+        seq(
+          field("name", alias("enum", $.name)),
+          "(",
+          field("tag", alias($._NAME, $.tag)),
+          ")",
+          ";",
+        ), // legacy syntax
       ),
 
     _prop_body: ($) =>
       seq(
-        alias($._NAME, $.name),
-        optional(seq("[", alias($._NAME, $.index), "]")),
+        field("name", alias($._PROPNAME, $.name)),
+        optional(seq("[", field("index", alias($._PROPNAME, $.index)), "]")),
         optional($._prop_parenthesized),
       ),
 
     _prop_parenthesized: ($) =>
-      prec.right(seq("(", alias(repeat1($._prop_value), $.tag), ")")), // TODO
+      seq("(", optional($._property_keys), ")"),
 
-    _prop_value: ($) => choice($._prop_value_parenthesized, /[^\(\)]+/),
+    _property_keys: ($) =>
+      seq($.property_key, repeat(seq(";", $.property_key))),
 
-    _prop_value_parenthesized: ($) =>
-      prec.right(seq("(", repeat($._prop_value), ")")),
+    property_key: ($) =>
+      choice(
+        seq(
+          field("name", alias($.property_value, $.name)),
+          "=",
+          $._property_values,
+        ),
+        $._property_values,
+      ),
 
-    cplusplus_parenthesized: ($) =>
-      seq("(", repeat(choice($.cplusplus_parenthesized, /[^\(\);]/)), ")"),
+    _property_values: ($) =>
+      seq($.property_value, repeat(seq(",", $.property_value))),
+
+    property_value: ($) =>
+      repeat1(choice(alias($._STRINGCONSTANT, $.string), $._prop_group, $._prop_text)),
+
+    _prop_group: ($) =>
+      seq(
+        choice("(", "[", "{"),
+        repeat(
+          choice(alias($._STRINGCONSTANT, $.string), $._prop_group, $._prop_group_text),
+        ),
+        choice(")", "]", "}"),
+      ),
+
+    _prop_text: (_) => token(/[^()\[\]{},;="\s]+/),
+
+    _prop_group_text: (_) => token(/[^()\[\]{}"]+/),
 
     _inline_properties: ($) => repeat1(alias($.inline_property, $.property)),
 
     inline_property: ($) =>
       choice(
         seq("@", $._prop_body),
-        seq(alias("enum", $.name), "(", alias($._NAME, $.tag), ")"), // legacy syntax
+        seq(
+          field("name", alias("enum", $.name)),
+          "(",
+          field("tag", alias($._NAME, $.tag)),
+          ")",
+        ), // legacy syntax
       ),
 
-    _NAME: ($) => /[a-zA-Z_][a-zA-Z0-9_]*/,
-    _INTCONSTANT: ($) => /0[xX][0-9a-fA-F]+|[0-9]+/,
-    _REALCONSTANT: ($) => /[0-9]*\.[0-9]+([eE][+-]?[0-9]+)?/,
-    _CHARCONSTANT: ($) => /'[^']'/,
-    _STRINGCONSTANT: ($) => /"([^"\\]|\\.)*"/,
-    _EMPTYLINE: ($) => /\r?\n\s*\r?\n\s*/,
+    _NAME: (_) => /[a-zA-Z_][a-zA-Z0-9_]*/,
+    _PROPNAME: (_) => token(/[a-zA-Z0-9_:.\-]+/),
+    _INTCONSTANT: (_) => /0[xX][0-9a-fA-F]+|[0-9]+/,
+    _REALCONSTANT: (_) => /[0-9]*\.[0-9]+([eE][+-]?[0-9]+)?/,
+    _CHARCONSTANT: (_) => /'[^']'/,
+    _STRINGCONSTANT: (_) => /"([^"\\]|\\.)*"/,
+    _EMPTYLINE: (_) => /\r?\n\s*\r?\n\s*/,
   },
 });

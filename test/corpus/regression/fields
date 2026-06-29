@@ -1,0 +1,72 @@
+==================
+fields and structured properties (field names asserted)
+==================
+
+@property[bit](type=int; usage=field; desc="define stored size in bits");
+
+packet Foo extends Bar
+{
+    abstract const int x[10] @editable;
+    string s @getter("getX") @sizeGetter("getN");
+    int y @implements(A, B) = 5;
+    int z @toValue(cValue($.get(),"b"));
+}
+
+---
+
+(msg_file
+  (property
+    name: (name)
+    index: (index)
+    (property_key
+      name: (name)
+      (property_value))
+    (property_key
+      name: (name)
+      (property_value))
+    (property_key
+      name: (name)
+      (property_value
+        (string))))
+  (packet
+    name: (name)
+    extends: (extends)
+    (body
+      (field
+        type: (type)
+        name: (name)
+        (vector
+          size: (size))
+        (property
+          name: (name)))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string))))
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string)))))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value)
+            (property_value)))
+        value: (value
+          (number)))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string))))))))

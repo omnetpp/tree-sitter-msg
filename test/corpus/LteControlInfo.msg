@@ -228,7 +228,8 @@ class UserControlInfo extends LteControlInfo {
       (field
         (type)
         (name)
-        (value))
+        (value
+          (number)))
       (comment)))
   (class
     (comment)
@@ -268,7 +269,8 @@ class UserControlInfo extends LteControlInfo {
     (body
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (field
         (type)
         (name)
@@ -289,7 +291,8 @@ class UserControlInfo extends LteControlInfo {
       (field
         (type)
         (name)
-        (value))
+        (value
+          (number)))
       (comment)
       (field
         (type)

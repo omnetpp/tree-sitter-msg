@@ -1,0 +1,62 @@
+==================
+property string literals (delimiters inside strings stay opaque)
+==================
+
+class C
+{
+    int a @foo("(");
+    int b @bar("a;b");
+    int c @baz("x,y");
+    int d @hint("Packet data, excluding popped parts");
+    int e @empty();
+    int f @plain;
+}
+
+---
+
+(msg_file
+  (class
+    name: (name)
+    (body
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string)))))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string)))))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string)))))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)
+          (property_key
+            (property_value
+              (string)))))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name)))
+      (field
+        type: (type)
+        name: (name)
+        (property
+          name: (name))))))

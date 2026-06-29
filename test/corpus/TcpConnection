@@ -108,7 +108,8 @@ class TcpConnection extends cObject
         (name))
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (field
         (type)
         (name))))
@@ -120,7 +121,8 @@ class TcpConnection extends cObject
         (name))
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (field
         (type)
         (name))))
@@ -132,7 +134,8 @@ class TcpConnection extends cObject
         (name))
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (field
         (type)
         (name))
@@ -147,13 +150,15 @@ class TcpConnection extends cObject
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name))

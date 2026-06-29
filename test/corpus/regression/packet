@@ -34,12 +34,15 @@ packet IPPacket {
 
 (msg_file
   (packet
+    (name)
+    (extends)
     (body
       (property
         (name))
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (field
         (type)
         (name))
@@ -58,7 +61,8 @@ packet IPPacket {
       (field
         (type)
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (type)
         (name))
@@ -70,41 +74,50 @@ packet IPPacket {
         (type)
         (name))))
   (packet
+    (name)
     (body
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (vector)
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
@@ -112,10 +125,13 @@ packet IPPacket {
           (size))
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag))
+          (property_key
+            (property_value)))
         (property
           (name)
-          (tag))))))
+          (property_key
+            (property_value)))))))

@@ -25,6 +25,11 @@ cplusplus(GptpFollowUpInformationTlv) {{
     int32_t getCumulativeScaledRateOffset() const { return (int32_t)ceil((getRateRatio() - 1.0) * (double)((uint64_t)1<<41)); }
 }}
 
+cplusplus {{
+struct S { int a; };
+inline int f() { return 0; }
+}}
+
 ---
 
 (msg_file
@@ -36,4 +41,6 @@ cplusplus(GptpFollowUpInformationTlv) {{
         (body))
     (cplusplus
         (target)
+        (body))
+    (cplusplus
         (body)))

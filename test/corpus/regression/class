@@ -74,101 +74,119 @@ class IPAddress
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag))
-        (value))
+          (property_key
+            (property_value)))
+        (value
+          (number)))
       (comment)
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (comment)))
   (class
     (name)
@@ -181,13 +199,15 @@ class IPAddress
         (name)
         (property
           (name)
-          (tag)))
+          (property_key
+            (property_value))))
       (field
         (type)
         (name)
         (property
           (name)
-          (tag)))))
+          (property_key
+            (property_value))))))
   (class
     (name)
     (body
@@ -219,7 +239,11 @@ class IPAddress
         (name))
       (property
         (name)
-        (tag))))
+        (property_key
+          (property_value
+            (string)
+            (string)
+            (string))))))
   (class
     (name)
     (body
@@ -229,9 +253,11 @@ class IPAddress
         (name))
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (comment)
       (property
         (name)
-        (tag))
+        (property_key
+          (property_value)))
       (comment))))

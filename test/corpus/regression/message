@@ -53,7 +53,8 @@ message ClockEvent
       (field
         (type)
         (name)
-        (value))
+        (value
+          (number)))
       (field
         (type)
         (name)
