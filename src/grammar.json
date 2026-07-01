@@ -1504,6 +1504,10 @@
         },
         {
           "type": "STRING",
+          "value": "float"
+        },
+        {
+          "type": "STRING",
           "value": "double"
         },
         {

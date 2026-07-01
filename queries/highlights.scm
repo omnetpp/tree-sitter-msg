@@ -25,6 +25,7 @@
   "short"
   "int"
   "long"
+  "float"
   "double"
   "string"
 ] @type.builtin

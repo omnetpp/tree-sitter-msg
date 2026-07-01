@@ -235,6 +235,7 @@ module.exports = grammar({
         seq("unsigned", "short"),
         seq("unsigned", "int"),
         seq("unsigned", "long"),
+        "float",
         "double",
         "string",
         "bool",
